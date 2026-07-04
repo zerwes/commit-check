@@ -122,6 +122,8 @@ class ConfigMerger:
         "CCHK_REQUIRE_BODY": ("commit", "require_body", parse_bool),
         "CCHK_REQUIRE_SIGNED_OFF_BY": ("commit", "require_signed_off_by", parse_bool),
         "CCHK_IGNORE_AUTHORS": ("commit", "ignore_authors", parse_list),
+        "CCHK_AUTHOR_EMAIL_PATTERN": ("commit", "author_email_pattern", str),
+        "CCHK_AUTHOR_NAME_PATTERN": ("commit", "author_name_pattern", str),
         # Branch section
         "CCHK_CONVENTIONAL_BRANCH": ("branch", "conventional_branch", parse_bool),
         "CCHK_ALLOW_BRANCH_TYPES": ("branch", "allow_branch_types", parse_list),
