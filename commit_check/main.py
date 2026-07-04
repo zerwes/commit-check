@@ -293,6 +293,20 @@ def _get_parser() -> argparse.ArgumentParser:
         help="comma-separated list of authors to ignore for commit checks",
     )
 
+    commit_group.add_argument(
+        "--author-email-pattern",
+        type=str,
+        default=None,
+        help="regex to check author email",
+    )
+
+    commit_group.add_argument(
+        "--author-name-pattern",
+        type=str,
+        default=None,
+        help="regex to check author name",
+    )
+
     # Branch configuration options
     branch_group = parser.add_argument_group(
         "branch options", "Configuration options for --branch validation"
