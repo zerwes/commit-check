@@ -76,6 +76,8 @@ def get_default_config() -> dict[str, Any]:
             "require_body": DEFAULT_BOOLEAN_RULES["require_body"],
             "require_signed_off_by": DEFAULT_BOOLEAN_RULES["require_signed_off_by"],
             "ignore_authors": [],
+            "author_email_pattern": '^.+@.+$',
+            "author_name_pattern": None,
         },
         "branch": {
             "conventional_branch": True,
