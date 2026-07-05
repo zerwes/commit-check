@@ -138,6 +138,10 @@ class RuleBuilder:
             return self._build_length_rule(catalog_entry, "subject_min_length")
         elif check == "ignore_authors":
             return self._build_author_list_rule(catalog_entry, "ignore_authors")
+        elif check == "author_email":
+            return self._build_author_pattern_rule(catalog_entry, "author_email_pattern")
+        elif check == "author_name":
+            return self._build_author_pattern_rule(catalog_entry, "author_name_pattern")
         elif check == "merge_base":
             return self._build_merge_base_rule(catalog_entry)
         else:
@@ -232,6 +236,19 @@ class RuleBuilder:
         if config_key == "ignore_authors":
             return ValidationRule(check=catalog_entry.check, ignored=author_list)
         return None
+
+    def _build_author_pattern_rule(
+        self, catalog_entry: RuleCatalogEntry, config_key: str
+    ) -> ValidationRule | None:
+        """Build author name or email validation rule."""
+        regex = self.commit_config.get(config_key, "").strip()
+
+        return ValidationRule(
+            check=catalog_entry.check,
+            regex=regex,
+            error=catalog_entry.error,
+            suggest=catalog_entry.suggest,
+        )
 
     def _build_merge_base_rule(
         self, catalog_entry: RuleCatalogEntry
