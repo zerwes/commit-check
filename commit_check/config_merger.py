@@ -77,7 +77,7 @@ def get_default_config() -> dict[str, Any]:
             "require_signed_off_by": DEFAULT_BOOLEAN_RULES["require_signed_off_by"],
             "ignore_authors": [],
             "author_email_pattern": '^.+@.+$',
-            "author_name_pattern": None,
+            "author_name_pattern": "",
         },
         "branch": {
             "conventional_branch": True,
@@ -151,6 +151,8 @@ class ConfigMerger:
         "require_body": ("commit", "require_body"),
         "require_signed_off_by": ("commit", "require_signed_off_by"),
         "ignore_authors": ("commit", "ignore_authors"),
+        "author_email_pattern": ("commit", "author_email_pattern"),
+        "author_name_pattern": ("commit", "author_name_pattern"),
         # Branch section
         "conventional_branch": ("branch", "conventional_branch"),
         "allow_branch_types": ("branch", "allow_branch_types"),
