@@ -246,7 +246,7 @@ class RuleBuilder:
         return ValidationRule(
             check=catalog_entry.check,
             regex=regex,
-            error=catalog_entry.error + " - should match " + regex,
+            error=catalog_entry.error,
             suggest=catalog_entry.suggest,
         )
 
